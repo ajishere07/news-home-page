@@ -16,6 +16,129 @@
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      :root {
+        --background-color: hsl(36, 100%, 99%);
+        --grayish-blue: hsl(233, 8%, 79%);
+        --dark-grayish-blue: hsl(236, 13%, 42%);
+        --soft-orange: hsl(35, 77%, 62%);
+      }
+
+      body {
+        background-color: var(--background-color);
+        font-family: "Inter", sans-serif;
+      }
+      header {
+        max-width: 1440px;
+        margin: 0 auto;
+        height: 80px;
+      }
+
+      nav {
+        background-color: transparent;
+        justify-content: space-between;
+        position: relative;
+        padding: 0 20px;
+        align-items: center;
+        display: flex;
+        height: 100%;
+      }
+
+      .brand_logo {
+        font-size: 53px;
+      }
+      .tabs {
+        font-size: 14px;
+        color: var(--dark-grayish-blue);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      li {
+        padding: 0 15px;
+      }
+
+      li p {
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      li p:hover {
+        color: var(--soft-orange);
+      }
+      .menu-icon {
+        cursor: pointer;
+        display: none;
+        position: absolute;
+        top: 0;
+        margin: auto 0;
+        bottom: 0;
+        right: 20px;
+      }
+      .close-icon {
+        cursor: pointer;
+      }
+
+      aside {
+        position: absolute;
+        right: -1px;
+        display: none;
+        flex-direction: column;
+        margin: 20px 0;
+      }
+      @media screen and (max-width: 470px) {
+        .menu-icon {
+          display: block;
+        }
+        li {
+          padding: 0;
+        }
+        .tabs {
+          display: none;
+        }
+
+        aside img {
+          margin: 20px 20px;
+          align-self: flex-end;
+        }
+        aside {
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          z-index: 1;
+          background-color: var(--background-color);
+          width: 50%;
+          position: absolute;
+          right: 0px;
+          top: -20px;
+
+          min-height: 100vh;
+          display: none;
+          flex-direction: column;
+          margin: 20px 0;
+        }
+
+        ul {
+          padding-left: 8px;
+          flex-direction: column;
+          align-self: flex-start;
+        }
+
+        ul li p {
+          font-size: 17px;
+          text-align: left;
+          margin: 10px 0;
+        }
+        .close-btn {
+          cursor: pointer;
+        }
+      }
       footer {
         display: grid;
         place-content: center;
@@ -39,6 +162,38 @@
     </style>
   </head>
   <body>
+    <header>
+      <nav>
+        <img class="brand_logo" src="assets/images/logo.svg" alt="logo" />
+        <ul class="tabs">
+          <li>
+            <p>Home</p>
+          </li>
+          <li><p>New</p></li>
+          <li><p>Popular</p></li>
+          <li><p>Trending</p></li>
+          <li><p>Categories</p></li>
+        </ul>
+        <aside class="sidebar">
+          <img
+            class="close-btn"
+            alt="close-btn"
+            src="assets/images/icon-menu-close.svg"
+          />
+          <ul>
+            <li>
+              <p>Home</p>
+            </li>
+            <li><p>New</p></li>
+            <li><p>Popular</p></li>
+            <li><p>Trending</p></li>
+            <li><p>Categories</p></li>
+          </ul>
+        </aside>
+        <img class="menu-icon" alt="menu" src="assets/images/icon-menu.svg" />
+      </nav>
+    </header>
+
     Home New Popular Trending Categories The Bright Future of Web 3.0? We dive
     into the next evolution of the web that claims to put the power of the
     platforms back into the hands of the people. But is it really fulfilling its
@@ -61,5 +216,21 @@
         >. Coded by <a href="#">ANUJ YADAV</a>.
       </div>
     </footer>
+    <script>
+      //opening the menu sidebar
+      var menu_btn = document.querySelector(".menu-icon");
+      var sidebar = document.querySelector(".sidebar");
+      menu_btn.addEventListener("click", () => {
+        sidebar.style.display = "flex";
+      });
+
+      //closing the menu sidebar
+
+      var close_btn = document.querySelector(".close-btn");
+      var sidebar = document.querySelector(".sidebar");
+      close_btn.addEventListener("click", () => {
+        sidebar.style.display = "none";
+      });
+    </script>
   </body>
 </html>
