@@ -24,16 +24,22 @@
         list-style: none;
         box-sizing: border-box;
       }
+      p {
+        cursor: pointer;
+      }
       :root {
         --background-color: hsl(36, 100%, 99%);
         --grayish-blue: hsl(233, 8%, 79%);
         --dark-grayish-blue: hsl(236, 13%, 42%);
         --soft-orange: hsl(35, 77%, 62%);
+        --very-dark-blue: hsl(240, 100%, 5%);
+        --soft-red: hsl(5, 85%, 63%);
       }
 
       body {
         background-color: var(--background-color);
         font-family: "Inter", sans-serif;
+        max-height: 100vh;
       }
       header {
         max-width: 1440px;
@@ -139,6 +145,119 @@
           cursor: pointer;
         }
       }
+
+      /* main css */
+
+      main {
+        width: 100%;
+      }
+
+      .grid_container {
+        column-gap: 30px;
+        row-gap: 50px;
+        height: 100%;
+        padding: 0 20px;
+        max-width: 1440px;
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1.5fr 1fr 1fr;
+      }
+
+      .img_section {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .new_section {
+        padding: 32px;
+        background-color: var(--very-dark-blue);
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+      .content_section {
+        display: grid;
+        height: 100%;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        column-gap: 10px;
+      }
+      .article_holder {
+        border-bottom: 1px solid var(--grayish-blue);
+        margin: 0 0 20px 0;
+      }
+      .subheading {
+        color: white;
+      }
+      .new_section p {
+        color: var(--grayish-blue);
+      }
+
+      .new_section h2 {
+        color: var(--soft-orange);
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .heading_text {
+        font-weight: 800;
+        line-height: 72px;
+        font-size: 68px;
+      }
+      .description_section {
+        position: relative;
+      }
+
+      .description_section p {
+        font-size: 18px;
+        color: var(--dark-grayish-blue);
+      }
+      button {
+        font-weight: 800;
+        border: none;
+        color: white;
+        background-color: var(--soft-red);
+        height: 50px;
+        text-transform: uppercase;
+        cursor: pointer;
+        letter-spacing: 5px;
+        width: 210px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transition: 0.2s;
+      }
+      button:hover {
+        letter-spacing: 2px;
+      }
+
+      .news_holder {
+        display: flex;
+        cursor: pointer;
+      }
+
+      .news_holder img {
+        margin-right: 18px;
+        width: 100px;
+        height: 130px;
+        object-fit: contain;
+      }
+      .news_holder h2 {
+        color: var(--grayish-blue);
+      }
+      .news_holder h3 {
+        margin: 10px 0;
+      }
+
+      .news_holder p {
+        color: var(--dark-grayish-blue);
+      }
+      /* main css */
+
       footer {
         display: grid;
         place-content: center;
@@ -192,73 +311,85 @@
         </aside>
         <img class="menu-icon" alt="menu" src="assets/images/icon-menu.svg" />
       </nav>
-      <main>
-        <div class="grid_container">
-          <img
-            class="img_section"
-            alt="img"
-            src="assets/images/image-web-3-desktop.jpg"
-          />
-          <section class="new_section">
-            <h2 class="title_new">New</h2>
-            <div>
-              <div>
-                <h3 class="subheading">Hydrogen VS Electric Cars</h3>
-                <p>Will hydogen-fueled cars ever catch up to EVs?</p>
-              </div>
-              <div>
-                <h3 class="subheading">The Downsides of AI Artistry</h3>
-                <p>
-                  What are the possible adverse effects of on-demand AI image
-                  generation?
-                </p>
-              </div>
-              <div>
-                <h3 class="subheading">Is VC Funding Drying Up?</h3>
-                <p>
-                  Private funding by VC firms is down 50% YOY. We take a look at
-                  what that means.
-                </p>
-              </div>
+    </header>
+    <main>
+      <div class="grid_container">
+        <img
+          class="img_section"
+          alt="img"
+          src="assets/images/image-web-3-desktop.jpg"
+        />
+        <section class="new_section">
+          <h2 class="title_new">New</h2>
+          <div class="content_section">
+            <div class="article_holder">
+              <h3 class="subheading">Hydrogen VS Electric Cars</h3>
+              <p>Will hydogen-fueled cars ever catch up to EVs?</p>
             </div>
-          </section>
-          <h1 class="heading_text">The Bright Future of Web 3.0?</h1>
-          <div class="description_section">
-            <p class="description_para">
-              We dive into the next evolution of the web that claims to put the
-              power of the platforms back into the hands of the people. But is
-              it really fulfilling its promise?
-            </p>
+            <div class="article_holder">
+              <h3 class="subheading">The Downsides of AI Artistry</h3>
+              <p>
+                What are the possible adverse effects of on-demand AI image
+                generation?
+              </p>
+            </div>
+            <div class="article_holder">
+              <h3 class="subheading">Is VC Funding Drying Up?</h3>
+              <p>
+                Private funding by VC firms is down 50% YOY. We take a look at
+                what that means.
+              </p>
+            </div>
+          </div>
+        </section>
+        <h1 class="heading_text">The Bright Future of Web 3.0?</h1>
+        <div class="description_section">
+          <p class="description_para">
+            We dive into the next evolution of the web that claims to put the
+            power of the platforms back into the hands of the people. But is it
+            really fulfilling its promise?
+          </p>
 
-            <button class="cta_btn">Read more</button>
-          </div>
-          <div class="retro_pc_container">
-            <img alt="retro-pcs" />
-            <div>
-              <h2>01</h2>
-              <h3>Reviving Retro PCs</h3>
-              <p>What happens when old PCs are given modern upgrades?</p>
-            </div>
-          </div>
+          <button class="cta_btn">Read more</button>
+        </div>
+        <div class="retro_pc_container news_holder">
+          <img
+            alt="retro-pcs"
+            src="assets/images/image-retro-pcs.jpg"
+            class="article_img"
+          />
           <div>
-            <img alt="laptops" />
-            <div>
-              <h2>02</h2>
-              <h3>Top 10 Laptops of 2022</h3>
-              <p>Our best picks for various needs and budgets.</p>
-            </div>
-          </div>
-          <div>
-            <img alt="growth_gaming" />
-            <div>
-              <h2>03</h2>
-              <h3>The Growth of Gaming</h3>
-              <p>How the pandemic has sparked fresh opportunities</p>
-            </div>
+            <h2>01</h2>
+            <h3>Reviving Retro PCs</h3>
+            <p>What happens when old PCs are given modern upgrades?</p>
           </div>
         </div>
-      </main>
-    </header>
+        <div class="news_holder">
+          <img
+            alt="laptops"
+            class="article_img"
+            src="assets/images/image-top-laptops.jpg"
+          />
+          <div>
+            <h2>02</h2>
+            <h3>Top 10 Laptops of 2022</h3>
+            <p>Our best picks for various needs and budgets.</p>
+          </div>
+        </div>
+        <div class="news_holder">
+          <img
+            alt="growth_gaming"
+            class="article_img"
+            src="assets/images/image-gaming-growth.jpg"
+          />
+          <div>
+            <h2>03</h2>
+            <h3>The Growth of Gaming</h3>
+            <p>How the pandemic has sparked fresh opportunities</p>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <footer>
       <div class="attribution">
