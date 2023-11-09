@@ -163,7 +163,10 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1.5fr 1fr 1fr;
       }
-
+      .mobile {
+        object-fit: cover;
+        display: block;
+      }
       .img_section {
         grid-column-start: 1;
         grid-column-end: 3;
@@ -256,6 +259,32 @@
       .news_holder p {
         color: var(--dark-grayish-blue);
       }
+
+      @media screen and (max-width: 470px) {
+        .desktop {
+          display: none;
+        }
+        .mobile {
+          display: block;
+        }
+        .grid_container {
+          grid-template-columns: 100%;
+          grid-template-rows: 2fr 1fr 1fr 2.5fr 1fr 1fr 1fr;
+        }
+        .img_section {
+          grid-column-start: 1;
+          grid-column-end: 2;
+        }
+        .new_section {
+          grid-row-start: 4;
+          grid-row-end: 5;
+        }
+        .description_section {
+          grid-row-start: 3;
+          grid-row-end: 4;
+        }
+      }
+
       /* main css */
 
       footer {
@@ -315,7 +344,12 @@
     <main>
       <div class="grid_container">
         <img
-          class="img_section"
+          class="img_section mobile"
+          alt="img"
+          src="assets/images/image-web-3-desktop.jpg"
+        />
+        <img
+          class="img_section desktop"
           alt="img"
           src="assets/images/image-web-3-desktop.jpg"
         />
